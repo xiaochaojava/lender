@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" 
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans 
+       					   http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       					   http://www.springframework.org/schema/context
+       					   http://www.springframework.org/schema/context/spring-context-3.0.xsd
+       					   http://www.springframework.org/schema/aop 
+       					   http://www.springframework.org/schema/aop/spring-aop-3.0.xsd"
+ >
+ 
+ 	<!-- 配置SecurityManager、自定义Realm、定义加密算法、自定义二级缓存 -->
+ 	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+ 		<property name="realm" ref="authRealm"/>
+ 		<property name="cacheManager" ref="shiroCache"/>
+ 	</bean>
+ 	
+ 	<!-- 配置自定义第三方缓存EhCache -->
+ 	<bean id="shiroCache" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+ 		<property name="cacheManagerConfigFile" value="classpath:ehcache-shiro.xml"/>
+ 	</bean>
+ 	
+ 	<!-- 自定义的realm -->
+ 	<bean id="authRealm" class="com.hzwealth.lender.shiro.AuthRealm">
+ 		<!-- spring给自定义realm注入需要的service	 -->
+ 		<property name="credentialsMatcher" ref="passwordMatcher"/>
+ 	</bean>
+
+	<!-- 自定义加密算法 -->
+	<bean id="passwordMatcher" class="com.hzwealth.lender.shiro.CustomCredentialsMatcher"/>
+ 	
+ 	<!-- 过滤URL，filter。这个id名称必须和web.xml中声明的filter一致 -->
+ 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+ 		<property name="securityManager" ref="securityManager"/>
+ 	
+ 		<property name="loginUrl" value="/user/login.html"/>
+ 		<property name="filterChainDefinitions">
+ 			<!-- 哪些jsp,action等其他资源可以放行，哪些jsp,action不能放行。配置时按先后顺序进行url过滤 ,anon放行，authc拦截。-->
+ 			<value>
+				/lenderIndex.html* = anon
+				/home* = anon
+				/user/login.html* = anon
+				/user/logout.html* = anon
+				/login* = anon
+				/logout* = anon
+				
+				/cxf/** = anon
+				
+				/pub/** = anon
+				/** = anon 				
+ 			</value>
+ 		</property>
+ 	</bean>
+ 	
+    
+    <!-- 保证实现了Shiro内部lifecycle函数的bean执行 -->
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <!-- 生成代理，通过代理进行控制 -->
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+          depends-on="lifecycleBeanPostProcessor">
+        <property name="proxyTargetClass" value="true"/>
+    </bean>
+    
+    <!-- 安全管理器 -->
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+ </beans>

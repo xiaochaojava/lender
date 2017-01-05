@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hzwealth.mapper.RoleRightMapper">
+	<!-- 不配置详细的属性，它的名称必须和结果集的列名一致 -->
+	<resultMap type="com.hzwealth.pojo.RoleRight" id="roleRightRM"></resultMap>
+	<!-- 待条件的查询 -->
+	<!-- 通过角色Id获取所拥有的权限的Id -->
+	<select id="findRightByRoleId" parameterType="java.util.Map" resultMap="roleRightRM">
+		select * from  tb_role_right where role_id=#{roleId}
+	</select>
+	
+</mapper>

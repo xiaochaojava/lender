@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.hzwealth.mapper.RightMapper">
+	<!-- 不配置详细的属性，它的名称必须和结果集的列名一致 -->
+	<resultMap type="com.hzwealth.pojo.Right" id="rightRM"></resultMap>
+	
+	<!-- 带条件查询 -->
+	<select id="getRightListByRoleId" parameterType="java.util.Map" resultMap="rightRM">
+		select r.* from tb_right r join tb_role_right rr on r.id = rr.right_id 
+		where rr.role_id=#{roleId}  
+		
+		
+	</select>
+
+</mapper>
+
+
+
+
