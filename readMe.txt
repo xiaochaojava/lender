@@ -1,11 +1,11 @@
-Ò»¡¢ÏîÄ¿¼ò½é
-	ÕâÊÇÒ»¸ölenderÏîÄ¿£¬ÎÒÃÇÒÔºóÒª¿ª·¢µÄ³ö½èÈËÏµÍ³Ä£¿é¡£
-¶þ¡¢ÏîÄ¿ÃèÊö
-	1¡¢¿ª·¢»·¾³¼°Ó¦ÓÃ¼¼Êõ
-		¿ò¼Ü²ÉÓÃµÄÊÇ£º  Maven+SpringMVC+Spring+Mybatis+Mysql    
-		¿ª·¢¹¤¾ß£ºEclipse 
-		ÏîÄ¿¹ÜÀí¹¤¾ß£ºGit
-	2¡¢ÏîÄ¿³ÉÔ±
+ä¸€ã€é¡¹ç›®ç®€ä»‹
+	è¿™æ˜¯ä¸€ä¸ªlenderé¡¹ç›®ï¼Œæˆ‘ä»¬ä»¥åŽè¦å¼€å‘çš„å‡ºå€Ÿäººç³»ç»Ÿæ¨¡å—ã€‚
+äºŒã€é¡¹ç›®æè¿°
+	1ã€å¼€å‘çŽ¯å¢ƒåŠåº”ç”¨æŠ€æœ¯
+		æ¡†æž¶é‡‡ç”¨çš„æ˜¯ï¼š  Maven+SpringMVC+Spring+Mybatis+Mysql    
+		å¼€å‘å·¥å…·ï¼šEclipse 
+		é¡¹ç›®ç®¡ç†å·¥å…·ï¼šGit
+	2ã€é¡¹ç›®æˆå‘˜
 		Team lender
 			Mr.ZHAO 
 			Mr.LI
@@ -13,16 +13,18 @@
 			Mr.GUO
 			Mr.LIU
 			Miss.ZHAO
-Èý¡¢ÏîÄ¿Õ¹Íû
-	´´ÔìÒ»¸öÒ»Á÷µÄ»¥ÁªÍø½ðÈÚÆ½Ì¨¡£
+ä¸‰ã€é¡¹ç›®å±•æœ›
+	åˆ›é€ ä¸€ä¸ªä¸€æµçš„äº’è”ç½‘é‡‘èžå¹³å°ã€‚
 
 
-ËÄ¡¢ÏîÄ¿Ä¿µÄ
-	1¡¢²âÊÔ
-	2¡¢¶ÍÁ¶Ð´´úÂëµÄÄÜÁ¦
-	3¡¢Ñ§Ï°ÄÜÁ¦µÄÌá¸ß¡£
+å››ã€é¡¹ç›®ç›®çš„
+	1ã€æµ‹è¯•
+	2ã€é”»ç‚¼å†™ä»£ç çš„èƒ½åŠ›
+	3ã€å­¦ä¹ èƒ½åŠ›çš„æé«˜ã€‚
         4/test chongtu
+	5/test fast forward
+	6/test bug
 
 
-                                                                               create :2017.1.5  ThursDay£¬14:25 
+                                                                               create :2017.1.5  ThursDayï¼Œ14:25 
 
