@@ -6,6 +6,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -143,7 +145,7 @@ public class RoleService extends BaseService<Role>{
 	
 	
 	/**
-	 * 菜单授权Ztree树 
+	 * 菜单授权Ztree树  授权模块
 	 * 准备ztree的数据，所有启用的模块( [{"id","pid","name","checked"},{"id","pid","name","checked"}] )
 	 * @param roleId
 	 * @return
@@ -174,6 +176,23 @@ public class RoleService extends BaseService<Role>{
 		sBui.append("]");
 		
 		return sBui.toString();
+	}
+	/**
+	 * 展示菜单list  菜单管理模块
+	 * @param roleId
+	 * @return
+	 */
+	public String getRJsonStr(Long roleId){
+		List<Right> rightList = rightMapper.select(null);
+		JSONArray array = new JSONArray();
+		for(Right right :rightList){
+			JSONObject jsonObject = new JSONObject();
+			jsonObject.put("id", right.getId());
+			jsonObject.put("name", right.getRightName());
+			jsonObject.put("pId", right.getParentId());
+			array.put(jsonObject);
+		}
+		return array.toString();
 	}
 	/**
 	 * 保存角色的菜单的集合

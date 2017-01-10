@@ -10,5 +10,6 @@ import com.hzwealth.pojo.RoleRight;
 
 @Repository
 public interface RoleRightMapper extends SysMapper<RoleRight>{
-	public List<RoleRight> findRightByRoleId(Map map);
+	public List<RoleRight> findRightByRoleId(Map map);  //根据roleId 查询RoleRight
+	
 }

@@ -1,10 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <link href="${pageContext.request.contextPath }/pub/js/kindeditor-4.1.10/themes/default/default.css" type="text/css" rel="stylesheet">
 <link rel="stylesheet" href="${pageContext.request.contextPath }/pub/js/zTree/css/zTreeStyle/zTreeStyle.css" type="text/css" />
-
 <script type="text/javascript" src="${pageContext.request.contextPath }/pub/js/zTree/js/jquery.ztree.core-3.5.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath }/pub/js/zTree/js/jquery.ztree.excheck-3.5.min.js"></script>
-
 <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath }/pub/js/kindeditor-4.1.10/kindeditor-all-min.js"></script>
 <script type="text/javascript" charset="utf-8" src="${pageContext.request.contextPath }/pub/js/kindeditor-4.1.10/lang/zh_CN.js"></script>
 	<script type="text/javascript">
@@ -26,8 +24,7 @@
 			var zNodes = eval('${roleRightJsonStr}');
 			zTreeObj = $.fn.zTree.init($('#jkTree'), setting, zNodes);	//jkTree 树的id，支持多个树
 			zTreeObj.expandAll(true);		//展开所有树节点
-		}
-		
+		}	
 		//获取所有选择的节点
 		function submitCheckedNodes(treeNode) {
 			var nodes = new Array();
@@ -59,14 +56,10 @@
   <div class="textbox-title">
 	<img src="${pageContext.request.contextPath }/pub/skin/default/images/icon/folder_edit.png"/>
    角色的模块设置
-  </div> 
-
- 
+  </div>  
     <div>
 		<ul id="jkTree" class="ztree"></ul>
 	</div>
- 
- 
 </form>
 	<div style="padding:5px">
 	    <a href="javascript:void(0)" class="easyui-linkbutton" onclick="submitCheckedNodes();submitForm()">提交</a>

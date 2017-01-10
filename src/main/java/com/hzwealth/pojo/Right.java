@@ -18,12 +18,12 @@ public class Right{
 	private Long id;
 	
 	@Column(name="right_name")
-	private String rightName;
+	private String rightName;         //菜单名称
 	
 	@Column(name="right_path")
-	private String rightPath;
+	private String rightPath;             //菜单路径
 	
-	@Column(name="parent_id")
+	@Column(name="parent_id")         //父菜单Id
 	private Long parentId;
 	
 	public Long getId() {

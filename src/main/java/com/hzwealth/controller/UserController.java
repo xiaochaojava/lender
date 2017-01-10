@@ -1,9 +1,7 @@
 package com.hzwealth.controller;
 
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import java.util.Enumeration;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +19,6 @@ import com.github.pagehelper.PageInfo;
 import com.hzwealth.common.vo.EasyUIResult;
 import com.hzwealth.common.vo.SysConstant;
 import com.hzwealth.common.vo.SysResult;
-import com.hzwealth.pojo.Right;
 import com.hzwealth.pojo.User;
 import com.hzwealth.service.RightService;
 import com.hzwealth.service.RoleService;
@@ -37,8 +34,6 @@ public class UserController extends BaseController {
 	@Autowired
 	private RoleService roleService;
 	
-	@Autowired
-	private RightService rightService;
 	/**
 	 * 查询所有用户
 	 * @param page
@@ -107,7 +102,11 @@ public class UserController extends BaseController {
 	 */
 	@RequestMapping("/logout")
 	public String logout(HttpServletRequest request){
-		request.getSession().removeAttribute("user");
+//		session.invalidate();
+		Enumeration<String> en = request.getSession().getAttributeNames();
+		while(en.hasMoreElements()){
+			request.getSession().removeAttribute(en.nextElement().toString());
+		}
 		return "/user/login";
 	}
 	
