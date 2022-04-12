@@ -8,13 +8,7 @@ this is a lender project
 		开发工具：Eclipse 
 		项目管理工具：Git
 	2、项目成员
-		Team lender
-			Mr.ZHAO 
-			Mr.LI
-			Mr.LIU
-			Mr.GUO
-			Mr.LIU
-			Miss.ZHAO
+		
 三、项目展望
 	创造一个一流的互联网金融平台。
 
